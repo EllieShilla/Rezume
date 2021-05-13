@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {Attainments} from '../Skills';
+import {Inform}from '../mock';
 
 @Component({
   selector: 'app-skills',
-  template: '<h1>Умения</h1><h2>Навыки</h2><li *ngFor="let item of inform.skills">{{item}}</li><h2>Знания</h2><li *ngFor="let item of inform.knowledge">{{item}}</li><h2>Сертификаты</h2><li *ngFor="let item of inform.certificate">{{item}}</li>',
-  styleUrls: ['./skills.component.css']
+  template: `<h1>Умения</h1><div *ngFor="let i of title" [ngSwitch]="i"><h2 *ngSwitchCase="'Навыки'" [ngClass]="{colorStyle:true}">{{i}}</h2><span *ngFor="let item of inform.skills" [ngStyle]="{'font-size':'16px'}"><p *ngSwitchCase="'Навыки'" [ngStyle]="{'font-weight':'370'}">{{item}}</p></span><h2 *ngSwitchCase="'Знания'" [ngClass]="{colorStyle:true}">{{i}}</h2><p *ngFor="let item of inform.knowledge" [ngStyle]="{'font-size':'16px'}"><span *ngSwitchCase="'Знания'" [ngStyle]="{'font-weight':'370'}">{{item}}</span></p><h2 *ngSwitchCase="'Сертификаты'" [ngClass]="{colorStyle:true}">{{i}}</h2><p *ngFor="let item of inform.certificate" [ngStyle]="{'font-size':'16px'}"><span *ngSwitchCase="'Сертификаты'" [ngStyle]="{'font-weight':'370'}">{{item}}</span></p></div>`,
+  styles: ['.colorStyle{background-color:#dfd0f5;}']
 })
+
 export class SkillsComponent implements OnInit {
-inform:Attainments={
-	skills:["skill1","skill2"],
-	knowledge:["knowledge1","knowledge2","knowledge3"],
-	certificate:["certificate"]
-}
+inform=Inform;
+title:string[]=["Навыки","Знания","Сертификаты"];
 
   constructor() { }
 
@@ -19,3 +17,5 @@ inform:Attainments={
   }
 
 }
+
+
