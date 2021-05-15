@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FIOComponent } from './fio/fio.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { SkillsComponent } from './skills/skills.component';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { SkillsComponent } from './skills/skills.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
